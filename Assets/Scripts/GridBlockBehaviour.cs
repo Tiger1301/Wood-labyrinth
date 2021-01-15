@@ -4,9 +4,13 @@ using UnityEngine;
 
 public class GridBlockBehaviour : MonoBehaviour
 {
+    public Material BallMaterial;
+    Renderer rend;
     // Start is called before the first frame update
     void Start()
     {
+        rend = GetComponent<Renderer>();
+        rend.enabled = true;
         CheckPosition();
     }
 
@@ -18,70 +22,7 @@ public class GridBlockBehaviour : MonoBehaviour
 
     public void CheckPosition()
     {
-        //if(transform.position.x==6.75 && transform.position.z==5.25)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 6.75 && transform.position.z == 3.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -5.25 && transform.position.z == 5.25)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -0.75 && transform.position.z == 5.25)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 3.75 && transform.position.z == 3.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -5.25 && transform.position.z == 0.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -5.25 && transform.position.z == -2.25)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -5.25 && transform.position.z == -6.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -0.75 && transform.position.z == -6.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 2.25 && transform.position.z == -6.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 5.25 && transform.position.z == -6.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 5.25 && transform.position.z == -3.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 5.25 && transform.position.z == 0.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 2.25 && transform.position.z == -3.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == -0.75 && transform.position.z == -3.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
-        //else if (transform.position.x == 2.25 && transform.position.z == -0.75)
-        //{
-        //    this.gameObject.SetActive(false);
-        //}
+        
     }
 
     private void OnTriggerStay(Collider other)
@@ -91,4 +32,11 @@ public class GridBlockBehaviour : MonoBehaviour
             this.gameObject.SetActive(false);
         }
     }
+    //private void OnCollisionEnter(Collision collision)
+    //{
+    //    if(collision.gameObject.tag=="Ball")
+    //    {
+    //        rend.sharedMaterial = BallMaterial;
+    //    }
+    //}
 }

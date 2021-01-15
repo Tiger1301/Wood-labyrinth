@@ -72,10 +72,14 @@
     <Compile Include="Assets\Joystick Pack\Scripts\Joysticks\VariableJoystick.cs" />
     <Compile Include="Assets\Scripts\Accelerometer.cs" />
     <Compile Include="Assets\Scripts\Ball.cs" />
+    <Compile Include="Assets\Scripts\GridBase.cs" />
     <Compile Include="Assets\Scripts\GridBlockBehaviour.cs" />
     <Compile Include="Assets\Scripts\GridGeneration.cs" />
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Pad.cs" />
+    <Compile Include="Assets\Scripts\TileBase.cs" />
+    <Compile Include="Assets\Scripts\VoidBehaviour.cs" />
+    <Compile Include="Assets\Scripts\WallGeneration.cs" />
     <Reference Include="UnityEngine">
       <HintPath>C:/Program Files/Unity/Hub/Editor/2019.4.15f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
