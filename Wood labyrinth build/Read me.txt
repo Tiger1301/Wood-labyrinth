@@ -1,0 +1,1 @@
+Ui elements may be out of their right position, it depends on the phone resolution
