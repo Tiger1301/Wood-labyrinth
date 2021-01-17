@@ -45,7 +45,7 @@ public class GridGeneration : MonoBehaviour
         {
             Vector3 spawnPosition = new Vector3(Random.Range(-6, 7), 1.7f, Random.Range(-6, 7));
             Instantiate(Void, spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
-            Void.transform.SetParent(gameObject.transform);
+            //Void.transform.SetParent(gameObject.transform);
         }
     }
 }
