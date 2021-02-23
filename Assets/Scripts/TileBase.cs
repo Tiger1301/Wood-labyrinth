@@ -1,18 +1,24 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class TileBase : MonoBehaviour
+namespace DanieleFramework
 {
-    // Start is called before the first frame update
-    void Start()
+    public class TileBase : MonoBehaviour
     {
-        
-    }
+        public int X;
+        public int Y;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        //public static B[] ShuffleArray<B>(B[] array, int Seed)
+        //{
+        //    System.Random prng = new System.Random(Seed);
+        //    for(int i=0; i<array.Length;i++)
+        //    {
+        //        int RandomIndex = prng.Next(i, array.Length);
+        //        B tempItem = array[RandomIndex];
+        //        array[RandomIndex] = array[i];
+        //        array[i] = tempItem;
+        //    }
+        //    return array;
+        //}
     }
 }

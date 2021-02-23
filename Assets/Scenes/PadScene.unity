@@ -1212,6 +1212,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1953521292}
   - component: {fileID: 1953521291}
+  - component: {fileID: 1953521294}
   - component: {fileID: 1953521293}
   m_Layer: 0
   m_Name: Grid
@@ -1232,14 +1233,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fdc885ccd0a9786469e967d6986a314e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Rows: 30
-  Columns: 30
-  Holes: 9
-  Scale: 0.5
-  GridBlock: {fileID: 4988867940429515793, guid: 5b2a1f9a3f214934fb19e8b3eb0b1605,
+  Block: {fileID: 4988867940429515793, guid: 5b2a1f9a3f214934fb19e8b3eb0b1605, type: 3}
+  GridSize: {x: 10, y: 10}
+  tilebaseList: []
+  PrefabVoid: {fileID: 0}
+  PrefabWall: {fileID: 5940303314228464947, guid: 534b9c454708b094c86eef9eb622cd94,
     type: 3}
-  Void: {fileID: 7489542601404696444, guid: 15111311359bc294490aca707a9c4053, type: 3}
-  OriginAngle: {x: -7.25, y: 0.45, z: -7.25}
 --- !u!4 &1953521292
 Transform:
   m_ObjectHideFlags: 0
@@ -1267,4 +1266,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Joystick: {fileID: 493739328}
-  RotationSpeed: 0
+  RotationSpeed: 5
+--- !u!114 &1953521294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1953521290}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1b7a28f1b90b7b34a8f709aa264022e8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Block: {fileID: 0}
+  GridSize: {x: 10, y: 10}
+  tilebaseList: []

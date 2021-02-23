@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 3017026720840625546}
   - component: {fileID: 8754237827911769317}
   - component: {fileID: 3027207539268425542}
+  - component: {fileID: 2176727982922000167}
   m_Layer: 0
   m_Name: Grid Block
   m_TagString: Untagged
@@ -29,7 +30,7 @@ Transform:
   m_GameObject: {fileID: 4988867940429515793}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0.3302579, y: -3.6492662, z: 1.5204306}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
+  m_LocalScale: {x: 1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -107,3 +108,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BallMaterial: {fileID: 2100000, guid: 33a0f6c6314ca674c8a2e979bcb837c3, type: 2}
+--- !u!114 &2176727982922000167
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4988867940429515793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 89f9c48381df6cf478922bcab913b46d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  X: 0
+  Y: 0

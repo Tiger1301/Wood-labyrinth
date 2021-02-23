@@ -78,6 +78,8 @@
     <Compile Include="Assets\Scripts\Menu.cs" />
     <Compile Include="Assets\Scripts\Pad.cs" />
     <Compile Include="Assets\Scripts\TileBase.cs" />
+    <Compile Include="Assets\Scripts\UI_ManagerBase.cs" />
+    <Compile Include="Assets\Scripts\UI_MenuBase.cs" />
     <Compile Include="Assets\Scripts\VoidBehaviour.cs" />
     <Compile Include="Assets\Scripts\WallGeneration.cs" />
     <Reference Include="UnityEngine">
