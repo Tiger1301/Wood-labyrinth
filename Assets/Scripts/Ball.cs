@@ -8,7 +8,7 @@ public class Ball : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        StartPosition.transform.position = this.transform.position;
     }
 
     // Update is called once per frame

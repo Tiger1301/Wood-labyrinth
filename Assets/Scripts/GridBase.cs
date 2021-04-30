@@ -24,7 +24,7 @@ namespace DanieleFramework
         public virtual void GenerateGrid()
         {
             Tile = new TileBase[GridSize.x, GridSize.y];
-            OutOfPlayGeneration();
+            //OutOfPlayGeneration();
 
             for (int X=0; X<GridSize.x; X++)
             {
@@ -35,6 +35,7 @@ namespace DanieleFramework
                     newBlock.GetComponent<TileBase>().X = X;
                     newBlock.GetComponent<TileBase>().Y = Y;
                     tilebaseList.Add(newBlock);
+                    newBlock.transform.parent = this.transform;
                     //TileBase tilebase = Instantiate(Tile[X, Y], BlockPosition, transform.rotation);
                     //tilebase.X = X;
                     //tilebase.Y = Y;

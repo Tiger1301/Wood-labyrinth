@@ -8,6 +8,14 @@ public class GridGeneration : GridBase
 {
     public GameObject PrefabVoid;
     public GameObject PrefabWall;
+    public GameObject Goal;
+
+    public Vector2Int[] VoidsPositions;
+    public Vector2Int[] WallsPositions;
+    public Vector2Int GoalPosition = new Vector2Int(0, 0);
+
+    public List<GameObject> WallList = new List<GameObject>();
+    List<GameObject> GoalList = new List<GameObject>();
     
     //public GameObject GridBlock;
     //public GameObject Void;
@@ -19,7 +27,8 @@ public class GridGeneration : GridBase
     {
         //GridArray = new GameObject[Columns, Rows];
         GenerateGrid();
-        //GenerateHoles();
+        GenerateObstacles();
+        SetGoal();
     }
 
 
@@ -27,26 +36,49 @@ public class GridGeneration : GridBase
     {
         base.GenerateGrid();
 
+        //string holderName = "Generated grid";
+        //if (transform.Find(holderName))
+        //{
+        //    DestroyImmediate(transform.Find(holderName).gameObject);
+        //}
+        //Transform GridHolder = new GameObject(holderName).transform;
+        //GridHolder.parent = transform;
+
         for (int X = 0; X < GridSize.x; X++)
         {
             for (int Y = 0; Y < GridSize.y; Y++)
             {
                 if(X==0)
                 {
-                     Instantiate(PrefabWall, CoordWalls(X-1, Y), transform.rotation);
+                    GameObject newWall=Instantiate(PrefabWall, CoordWalls(X-1, Y), transform.rotation);
+                    newWall.transform.parent = this.transform;
+                    WallList.Add(newWall);
                 }
                 if(Y==0)
                 {
-                    Instantiate(PrefabWall, CoordWalls(X, Y-1), transform.rotation);
+                    GameObject newWall = Instantiate(PrefabWall, CoordWalls(X, Y-1), transform.rotation);
+                    newWall.transform.parent = this.transform;
+                    WallList.Add(newWall);
                 }
                 if(X==GridSize.x-1)
                 {
-                    Instantiate(PrefabWall, CoordWalls(X+1, Y), transform.rotation);
+                    GameObject newWall = Instantiate(PrefabWall, CoordWalls(X+1, Y), transform.rotation);
+                    newWall.transform.parent = this.transform;
+                    WallList.Add(newWall);
                 }
                 if(Y==GridSize.y-1)
                 {
-                    Instantiate(PrefabWall, CoordWalls(X, Y+1), transform.rotation);
+                    GameObject newWall = Instantiate(PrefabWall, CoordWalls(X, Y+1), transform.rotation);
+                    newWall.transform.parent = this.transform;
+                    WallList.Add(newWall);
                 }
+
+                FindObjectOfType<Ball>().transform.position = new Vector3(GridSize.x / 2 + 0.25f, 1f, GridSize.y / 2 + 0.25f);
+
+                //if(X==GridSize.x-1&&Y==GridSize.y-1)
+                //{
+                //    FindObjectOfType<Ball>().StartPosition.transform.position = newBlock.transform.position + new Vector3(0, 1, 0);
+                //}
 
                 //Vector3 BlockPosition = new Vector3(-GridSize.x / 2 + 0.5f + X, 0, -GridSize.y / 2 + 0.5f + Y);
                 //GameObject newBlock = Instantiate(Block, BlockPosition, transform.rotation);
@@ -106,13 +138,60 @@ public class GridGeneration : GridBase
     ///        }
     ///    }
     ///}
-    //public void GenerateHoles()
-    //{
-    //    for (int Hol = 0; Hol < Holes; Hol++)
-    //    {
-    //        Vector3 spawnPosition = new Vector3(Random.Range(-6, 7), 1.7f, Random.Range(-6, 7));
-    //        Instantiate(Void, spawnPosition + transform.TransformPoint(0, 0, 0), gameObject.transform.rotation);
-    //        //Void.transform.SetParent(gameObject.transform);
-    //    }
-    //}
+    public void GenerateObstacles()
+    {
+        foreach (GameObject Tile in tilebaseList)
+        {
+            for (int i = 0; i < VoidsPositions.Length; i++)
+            {
+                if(VoidsPositions[i].x == Tile.GetComponent<TileBase>().X && VoidsPositions[i].y == Tile.GetComponent<TileBase>().Y)
+                {
+                    Tile.gameObject.SetActive(false);
+                }
+            }
+            for (int i = 0; i < WallsPositions.Length; i++)
+            {
+                if(WallsPositions[i].x == Tile.GetComponent<TileBase>().X && WallsPositions[i].y == Tile.GetComponent<TileBase>().Y)
+                {
+                    GameObject newWall=Instantiate(PrefabWall, Tile.transform.position, transform.rotation);
+                    Tile.gameObject.SetActive(false);
+                    newWall.transform.parent = this.transform;
+                    WallList.Add(newWall);
+                }
+            }
+        }
+    }
+
+    public void SetGoal()
+    {
+        foreach (GameObject Tile in tilebaseList)
+        {
+            if(GoalPosition.x == Tile.GetComponent<TileBase>().X && GoalPosition.y == Tile.GetComponent<TileBase>().Y)
+            {
+                GameObject newGoal = Instantiate(Goal, Tile.transform.position, transform.rotation);
+                Tile.gameObject.SetActive(false);
+                newGoal.transform.parent = this.transform;
+                GoalList.Add(newGoal);
+            }
+        }
+    }
+
+    public void ClearList()
+    {
+        foreach (GameObject Tile in tilebaseList)
+        {
+            DestroyImmediate(Tile);
+        }
+        tilebaseList.Clear();
+        foreach (GameObject Wall in WallList)
+        {
+            DestroyImmediate(Wall);
+        }
+        WallList.Clear();
+        foreach (GameObject Goal in GoalList)
+        {
+            DestroyImmediate(Goal);
+        }
+        GoalList.Clear();
+    }
 }
